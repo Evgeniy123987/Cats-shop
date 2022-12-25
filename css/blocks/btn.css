@@ -1,0 +1,15 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 6px 10px;
+    
+    font-size: 10px;
+    gap: 10px;
+    border: none;
+    background-color: var(--bg-secondary-color);
+    color: var(--text-light-color);
+    cursor: pointer;
+
+}

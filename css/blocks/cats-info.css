@@ -1,0 +1,73 @@
+.cat-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: start;
+}
+
+
+.cat-info__image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    grid-row: 1 / 5;
+}
+
+.cat-info__rate {
+    white-space: nowrap;
+}
+
+.cat-info__favourite_active {
+    color: var(--tertiary-color);
+}
+
+.cat-info__edited, .cat-info__saved, .cat-info__deleted {
+    border-radius: 10px;
+    padding: 6px 10px;
+    display: flex;
+    gap: 5px;
+    border: 1px solid var(--outline-color);
+    align-self: flex-start;
+    cursor: pointer;
+    position: absolute;
+}
+
+.cat-info__rate::before {
+    content: "Рейтинг:";
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.cat-info__desc {
+    grid-column: 1 / -1;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.cat-info__saved_hidden {
+    display: none;
+}
+
+.cat-info__deleted {
+    top: 60px;
+}
+
+.cat-info__edited_hidden {
+    display: none;
+}
+
+.cat-info [contentEditable="true"]:focus {
+    box-shadow: 0 0 1px 1px var(--accent-color);
+    outline: none;
+}
+
+.cat-info [contentEditable="true"]:focus {
+    box-shadow: 0 0 1px 1px var(--primary-color);
+    outline: none;
+}
+
+.cat-info__age-val {
+    padding: 5px;
+}
