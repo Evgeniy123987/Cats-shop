@@ -18,6 +18,30 @@
     white-space: nowrap;
 }
 
+
+
+.cat-info__edited {
+    position:relative;
+    right: 20px;
+}
+
+.cat-info__saved {
+    position: relative;
+    right: 20px;
+}
+
+.cat-info__favorite {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border: none;
+}
+
+.cat-info__deleted {
+    position: relative;
+    right: 20px;
+}
+
 .cat-info__favourite_active {
     color: var(--tertiary-color);
 }
