@@ -14,9 +14,9 @@ export class CatsInfo {
 
     _updateViewLike() {
       if(this._data.favorite) {
-        this.buttonLiked.classList.add('cat-info__favourite_active')
+        this.buttonLiked.classList.add('cat-info__favorite_active')
       } else {
-        this.buttonLiked.classList.remove('cat-info__favourite_active')
+        this.buttonLiked.classList.remove('cat-info__favorite_active')
       }
     }
 
@@ -35,6 +35,7 @@ export class CatsInfo {
         this.catRate.innerHTML = generateRating(this._data.rate);
         
       this._updateViewLike();
+      console.log(this._updateViewLike)
     }
     
     _setLikeCat = () => {

@@ -42,7 +42,7 @@
     right: 20px;
 }
 
-.cat-info__favourite_active {
+.cat-info__favorite_active {
     color: var(--tertiary-color);
 }
 
