@@ -3,6 +3,7 @@
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .card__image {
@@ -19,6 +20,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .card__name {
