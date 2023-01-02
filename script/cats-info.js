@@ -23,19 +23,18 @@ export class CatsInfo {
     setData(cardInstance) {
         this._cardInstance = cardInstance;
         this._data = this._cardInstance.getData();
-        
         this.catImage.src = this._data.image;
         this.catDesc.textContent = this._data.description;
         this.catName.textContent = this._data.name;
         this.catAge.textContent = this._data.age;
         this.catId.textContent = this._data.id;
         
+        
         this.catAgeText.textContent = printNumerals(this._data.age, ["год", "года", "лет"])
 
         this.catRate.innerHTML = generateRating(this._data.rate);
         
       this._updateViewLike();
-      console.log(this._updateViewLike)
     }
     
     _setLikeCat = () => {
@@ -59,6 +58,7 @@ export class CatsInfo {
       this.catName.contentEditable = !this.catName.isContentEditable;
       this.catAge.contentEditable = !this.catAge.isContentEditable;
 
+
      }
 
      _savedDataCats = () => {
@@ -67,8 +67,10 @@ export class CatsInfo {
       this._data.name = this.catName.textContent;
       this._data.age = Number(this.catAge.textContent);
       this._data.description = this.catDesc.textContent;
+      
 
       this._handleEditCatInfo(this._cardInstance, this._data);
+      
      }
 
       getElement() {

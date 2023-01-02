@@ -14,7 +14,6 @@ export class Popup {
       // почему здесь используется стрелочная функция и как это связано с потерей контекста?
       this.popup.addEventListener('click', (evt) => {
         // console.log(evt.target.classList);
-        console.log(evt.target.closest('.popup__close'));
         if (
           evt.target.classList.contains(this._className) ||
           !!evt.target.closest('.popup__close')

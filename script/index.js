@@ -70,7 +70,7 @@ function handleFormAddCat(e) {
 
   api.addNewCat(dataFromForm).then(() => {
     console.log({ dataFromForm });
-    // console.log(elementsFormCat);
+    console.log(elementsFormCat);
     createCat(dataFromForm);
     updateLocalStorage(dataFromForm, { type: 'ADD_CAT' });
   });
@@ -91,6 +91,9 @@ function handleFormLogin(e) {
   Cookies.set('password', `password=${dataFromForm.password}`);
   btnOpenPopupLogin.classList.add('visually-hidden');
   popupLogin.close();
+
+  
+
 }
 
 function handleCatTitle(cardInstance) {
@@ -126,12 +129,11 @@ function handleCatDelete(cardInstance) {
 }
 
 function handleEditCatInfo(cardInstance, data) {
-  const {age, description, name, id} = data;
-  api.updateCatById(id, {age, description, name})
+  const {age, description, name, id, image} = data;
+  api.updateCatById(id, {age, description, name, image})
   .then(() => {
     cardInstance.setData(data);
     cardInstance.updateView();
-
     updateLocalStorage(data, {type: 'EDIT_CAT'})
     popupCatInfo.close();
   })
@@ -149,10 +151,22 @@ function handleEditCatInfo(cardInstance, data) {
 const isAuth = Cookies.get('email');
 const password = Cookies.get('password');
 
+const login = document.querySelector('.login');
+
 if (!isAuth) {
   popupLogin.open();
   btnOpenPopupLogin.classList.remove('visually-hidden');
+} else {
+  login.remove('login');
 }
+
+
+
+// if (isAuth) {
+//   btnOpenPopupLogin.classList.remove('visually-hidden');
+// }
+
+// btnOpenPopupLogin.classList.remove('visually-hidden');
 
 // localStorage.setItem('Boromur', JSON.stringify({ name: 'Artur', lang: 'ad' }));
 // // localStorage.getItem('Boromur');
@@ -162,22 +176,16 @@ if (!isAuth) {
 // localStorage.setItem('cats', JSON.stringify(cats));
 
 function checkLocalStorage() {
-  console.log('checkLocalStorage');
   const localData = JSON.parse(localStorage.getItem('cats'));
-  console.log(localData);
   const getTimeExpires = localStorage.getItem('catsRefresh');
 
   const isActual = new Date() < new Date(getTimeExpires);
 
-  console.log(new Date(getTimeExpires));
-
   if (localData && localData.length && isActual) {
-    console.log('isActual');
     localData.forEach(function (catData) {
       createCat(catData);
     });
   } else {
-    console.log('else');
     api.getAllCats().then((data) => {
       data.forEach(function (catData) {
         createCat(catData);

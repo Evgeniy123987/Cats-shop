@@ -23,6 +23,13 @@
     cursor: pointer;
 }
 
+.card__name:hover { 
+    border-radius: 10px;
+    padding: 10px 15px; 
+    background-color: rgba(237, 243, 248, 0.5);
+    
+}
+
 .card__name {
     font-size: 18px;
     font-weight: normal;
@@ -36,6 +43,7 @@
     position: absolute;
     left: 100%;
     margin-left: 5px;
+    
 }
 
 .card__like {
