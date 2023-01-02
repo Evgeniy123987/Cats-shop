@@ -37,3 +37,4 @@ export function generateRating(rate) {
   }
   return rateElements.join("");
 }
+

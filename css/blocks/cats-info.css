@@ -95,3 +95,7 @@
 .cat-info__age-val {
     padding: 5px;
 }
+
+.fa-star:hover {
+    cursor: pointer;
+}
