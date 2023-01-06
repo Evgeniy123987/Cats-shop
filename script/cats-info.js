@@ -22,12 +22,13 @@ export class CatsInfo {
 
     setData(cardInstance) {
         this._cardInstance = cardInstance;
-        this._data = this._cardInstance.getData();
+        this._data = this._cardInstance.getData(); 
         this.catImage.src = this._data.image;
         this.catDesc.textContent = this._data.description;
         this.catName.textContent = this._data.name;
         this.catAge.textContent = this._data.age;
         this.catId.textContent = this._data.id;
+        this.catImageLink = this._data.image;
         
         
         this.catAgeText.textContent = printNumerals(this._data.age, ["год", "года", "лет"])
@@ -87,9 +88,9 @@ export class CatsInfo {
         this.catAge = this.element.querySelector('.cat-info__age-val');
         this.catAgeText = this.element.querySelector('.cat-info__age-text');
         this.catDesc = this.element.querySelector('.cat-info__desc');
-
+        this.catImageLink = this.element.querySelector('.cat-info__image-link')
         this.setEventListener();
-        return this.element;
+        return this.element; 
 
       }
 

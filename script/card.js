@@ -29,11 +29,10 @@ export class Card {
 
     getElement() {
       this.element = this._getTemplate().cloneNode(true);
-      // console.log(this.element);
+
       this.cardTitle = this.element.querySelector('.card__name');
       this.cardImage = this.element.querySelector('.card_image');
       this.cardLike = this.element.querySelector('.card__like');
-      // console.log(cardTitle, cardImage);
      
       this.updateView();
       this.setEventListener();
@@ -70,9 +69,3 @@ export class Card {
       this.cardLike.addEventListener('click', this._setLikeCat);
     }
   }
-  // const card = new Card(cats[0]);
-  // console.log(card);
-  // const template = document.querySelector('#card-template').content.querySelector('.card');
-  // console.log(template);
-  
-  // console.log(card.getElement() === card.getElement());

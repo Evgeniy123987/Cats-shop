@@ -69,14 +69,9 @@ function handleFormAddCat(e) {
   const dataFromForm = serializeForm(elementsFormCat);
 
   api.addNewCat(dataFromForm).then(() => {
-    console.log({ dataFromForm });
-    console.log(elementsFormCat);
     createCat(dataFromForm);
     updateLocalStorage(dataFromForm, { type: 'ADD_CAT' });
   });
-  // const oldStorage = JSON.parse(localStorage.getItem('cats'));
-  // oldStorage.push(dataFromForm);
-  // localStorage.setItem('cats', JSON.stringify(oldStorage));
   popupAddCat.close();
 }
 
@@ -84,7 +79,7 @@ function handleFormLogin(e) {
   e.preventDefault();
   const elementsFormCat = [...formLogin.elements];
   const dataFromForm = serializeForm(elementsFormCat);
-  // console.log(dataFromForm);
+
   Cookies.set('email', `email=${dataFromForm.email}`);
   btnOpenPopupLogin.classList.add('visually-hidden');
 
@@ -138,15 +133,6 @@ function handleEditCatInfo(cardInstance, data) {
     popupCatInfo.close();
   })
 }
-// document.cookie = 'Luke=IamYourFather2;samesite=strict;expires=60';
-// document.cookie = 'email=email@email.com';
-
-// Cookies.set('vasya', 'good');
-
-// Cookies.set('potato', 'interest', { expires: 7 });
-
-// // console.log(document.cookie);
-// console.log(Cookies.get('potato'));
 
 const isAuth = Cookies.get('email');
 const password = Cookies.get('password');
@@ -159,21 +145,6 @@ if (!isAuth) {
 } else {
   login.remove('login');
 }
-
-
-
-// if (isAuth) {
-//   btnOpenPopupLogin.classList.remove('visually-hidden');
-// }
-
-// btnOpenPopupLogin.classList.remove('visually-hidden');
-
-// localStorage.setItem('Boromur', JSON.stringify({ name: 'Artur', lang: 'ad' }));
-// // localStorage.getItem('Boromur');
-// console.log(JSON.parse(localStorage.getItem('Boromur')));
-
-// sessionStorage.setItem('name', 'value');
-// localStorage.setItem('cats', JSON.stringify(cats));
 
 function checkLocalStorage() {
   const localData = JSON.parse(localStorage.getItem('cats'));
@@ -199,7 +170,6 @@ checkLocalStorage();
 
 function updateLocalStorage(data, action) {
   const oldStorage = JSON.parse(localStorage.getItem('cats'));
-  // {type: "ADD_CAT"} {type: "ALL_CATS"}  {type: "DELETE_CAT"}
   switch (action.type) {
     case 'ADD_CAT':
       localStorage.setItem('cats', JSON.stringify([...oldStorage, data]));
