@@ -88,7 +88,8 @@ export class CatsInfo {
         this.catAge = this.element.querySelector('.cat-info__age-val');
         this.catAgeText = this.element.querySelector('.cat-info__age-text');
         this.catDesc = this.element.querySelector('.cat-info__desc');
-        this.catImageLink = this.element.querySelector('.cat-info__image-link')
+        this.catImageLink = this.element.querySelector('.cat-info__image-link');
+        this.catInfoFavoriteAdd = this.element.querySelector('.cat-info__favorite_add')
         this.setEventListener();
         return this.element; 
 
